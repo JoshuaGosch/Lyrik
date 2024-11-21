@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrik-Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Animationen */
+        .positiveEffect {
+            animation: positiveEffect 2s ease-in-out;
+        }
+
+        .encouragingEffect {
+            animation: encouragingEffect 2s ease-in-out;
+        }
+
+        @keyframes positiveEffect {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes encouragingEffect {
+            0% {
+                transform: rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: rotate(360deg);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        #results {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lyrik-Test</h1>
+    <p>Teste dein Wissen über Lyrik! Beantworte die Fragen und finde heraus, wie gut du dich auskennst.</p>
+
+    <form id="lyrikTest">
+        <div class="question">
+            <p>1. Welche Textform gehört zur Lyrik?</p>
+            <input type="radio" id="frage1a" name="q1" value="0">
+            <label for="frage1a">Roman</label><br>
+            <input type="radio" id="frage1b" name="q1" value="1">
+            <label for="frage1b">Gedicht</label><br>
+            <input type="radio" id="frage1c" name="q1" value="0">
+            <label for="frage1c">Zeitungsartikel</label>
+        </div>
+
+        <div class="question">
+            <p>2. Was ist ein Reim?</p>
+            <input type="radio" id="frage2a" name="q2" value="1">
+            <label for="frage2a">Wörter, die sich am Ende ähnlich klingen</label><br>
+            <input type="radio" id="frage2b" name="q2" value="0">
+            <label for="frage2b">Ein langer Text ohne Struktur</label><br>
+            <input type="radio" id="frage2c" name="q2" value="0">
+            <label for="frage2c">Ein Titel eines Gedichts</label>
+        </div>
+
+        <div class="question">
+            <p>3. Wofür wird Lyrik oft verwendet?</p>
+            <input type="radio" id="frage3a" name="q3" value="0">
+            <label for="frage3a">Um wissenschaftliche Ergebnisse zu präsentieren</label><br>
+            <input type="radio" id="frage3b" name="q3" value="1">
+            <label for="frage3b">Um Gefühle und Gedanken auszudrücken</label><br>
+            <input type="radio" id="frage3c" name="q3" value="0">
+            <label for="frage3c">Um Geschichten zu erzählen</label>
+        </div>
+
+        <div class="question">
+            <p>4. Was ist ein Haiku?</p>
+            <input type="radio" id="frage4a" name="q4" value="1">
+            <label for="frage4a">Ein japanisches Kurzgedicht</label><br>
+            <input type="radio" id="frage4b" name="q4" value="0">
+            <label for="frage4b">Ein langer Roman</label><br>
+            <input type="radio" id="frage4c" name="q4" value="0">
+            <label for="frage4c">Ein musikalisches Werk</label>
+        </div>
+
+        <!-- Neue Fragen -->
+        <div class="question">
+            <p>5. Welches dieser Gedichte ist ein Beispiel für einen Sonett?</p>
+            <input type="radio" id="frage5a" name="q5" value="0">
+            <label for="frage5a">Das Lied von der Glocke von Friedrich Schiller</label><br>
+            <input type="radio" id="frage5b" name="q5" value="1">
+            <label for="frage5b">Shakespeares Sonette</label><br>
+            <input type="radio" id="frage5c" name="q5" value="0">
+            <label for="frage5c">Der Erlkönig von Johann Wolfgang von Goethe</label>
+        </div>
+
+        <div class="question">
+            <p>6. Was beschreibt der Begriff "Metapher"?</p>
+            <input type="radio" id="frage6a" name="q6" value="1">
+            <label for="frage6a">Ein Vergleich ohne "wie"</label><br>
+            <input type="radio" id="frage6b" name="q6" value="0">
+            <label for="frage6b">Ein Wort, das eine tatsächliche Bedeutung hat</label><br>
+            <input type="radio" id="frage6c" name="q6" value="0">
+            <label for="frage6c">Ein wiederholtes Wort in einem Gedicht</label>
+        </div>
+
+        <div class="question">
+            <p>7. Was ist ein Gedicht mit regelmäßiger Reimstruktur?</p>
+            <input type="radio" id="frage7a" name="q7" value="1">
+            <label for="frage7a">Ein Gedicht mit festem Reimschema</label><br>
+            <input type="radio" id="frage7b" name="q7" value="0">
+            <label for="frage7b">Ein Gedicht ohne Reime</label><br>
+            <input type="radio" id="frage7c" name="q7" value="0">
+            <label for="frage7c">Ein Gedicht ohne festen Rhythmus</label>
+        </div>
+
+        <div class="question">
+            <p>8. Was ist ein "Freiversmaß" in der Lyrik?</p>
+            <input type="radio" id="frage8a" name="q8" value="0">
+            <label for="frage8a">Ein Gedicht, das immer dieselbe Anzahl an Versen hat</label><br>
+            <input type="radio" id="frage8b" name="q8" value="1">
+            <label for="frage8b">Ein Gedicht ohne festes Metrum</label><br>
+            <input type="radio" id="frage8c" name="q8" value="0">
+            <label for="frage8c">Ein Gedicht mit gleichmäßigen Pausen zwischen den Versen</label>
+        </div>
+
+        <button type="button" onclick="submitTest()">Test abschließen</button>
+    </form>
+
+    <h2 id="resultsTitle" style="display: none;">Ergebnis:</h2>
+    <p id="results" style="font-size: 18px;"></p>
+
+    <script>
+        function submitTest() {
+            let score = 0;
+
+            // Antworten auswerten
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            const q5 = document.querySelector('input[name="q5"]:checked');
+            const q6 = document.querySelector('input[name="q6"]:checked');
+            const q7 = document.querySelector('input[name="q7"]:checked');
+            const q8 = document.querySelector('input[name="q8"]:checked');
+
+            if (q1) score += parseInt(q1.value);
+            if (q2) score += parseInt(q2.value);
+            if (q3) score += parseInt(q3.value);
+            if (q4) score += parseInt(q4.value);
+            if (q5) score += parseInt(q5.value);
+            if (q6) score += parseInt(q6.value);
+            if (q7) score += parseInt(q7.value);
+            if (q8) score += parseInt(q8.value);
+
+            // Ergebnis anzeigen
+            const resultsTitle = document.getElementById("resultsTitle");
+            const results = document.getElementById("results");
+
+            resultsTitle.style.display = "block";
+
+            if (score === 8) {
+                results.textContent = `Perfekt! Du hast ${score} von 8 Punkten. Du kennst dich in der Lyrik sehr gut aus!`;
+                results.classList.add("positiveEffect");
+            } else if (score >= 5) {
+                results.textContent = `Gut gemacht! Du hast ${score} von 8 Punkten. Du weißt schon einiges über Lyrik.`;
+                results.classList.add("positiveEffect");
+            } else {
+                results.textContent = `Du hast ${score} von 8 Punkten. Es lohnt sich, noch mehr über Lyrik zu lernen. 😊`;
+                results.classList.add("encouragingEffect");
+            }
+        }
+    </script>
+</body>
+</html>
