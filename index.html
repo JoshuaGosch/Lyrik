@@ -148,73 +148,121 @@
             <label for="frage5c">Ein Gedicht, das aus drei Strophen besteht</label>
         </div>
 
-        <button type="button" onclick="submitTest()">Test abschließen</button>
+        <div class="question">
+            <p>6. Was ist ein <span class="highlight" onclick="toggleDefinition('alexandrinDef')">Alexandriner</span>?</p>
+            <input type="radio" id="frage6a" name="q6" value="1">
+            <label for="frage6a">Ein Versmaß mit 12 Silben</label><br>
+            <input type="radio" id="frage6b" name="q6" value="0">
+            <label for="frage6b">Ein Gedicht mit einem freien Versmaß</label><br>
+            <input type="radio" id="frage6c" name="q6" value="0">
+            <label for="frage6c">Ein Gedicht mit 14 Versen</label>
+        </div>
+
+        <div class="question">
+            <p>7. Was beschreibt der Begriff <span class="highlight" onclick="toggleDefinition('metapherDef')">Metapher</span>?</p>
+            <input type="radio" id="frage7a" name="q7" value="1">
+            <label for="frage7a">Ein bildlicher Ausdruck, der etwas anderes bedeutet</label><br>
+            <input type="radio" id="frage7b" name="q7" value="0">
+            <label for="frage7b">Die Wiederholung von Lauten am Anfang von Wörtern</label><br>
+            <input type="radio" id="frage7c" name="q7" value="0">
+            <label for="frage7c">Die Abfolge von betonten und unbetonten Silben</label>
+        </div>
+
+        <div class="question">
+            <p>8. Was ist der Unterschied zwischen einem <span class="highlight" onclick="toggleDefinition('eposDef')">Epos</span> und einer Erzählung?</p>
+            <input type="radio" id="frage8a" name="q8" value="1">
+            <label for="frage8a">Ein Epos ist ein langes Gedicht, das von Helden erzählt</label><br>
+            <input type="radio" id="frage8b" name="q8" value="0">
+            <label for="frage8b">Ein Epos ist kürzer als eine Erzählung</label><br>
+            <input type="radio" id="frage8c" name="q8" value="0">
+            <label for="frage8c">Ein Epos hat keine Helden</label>
+        </div>
+
+        <div class="question">
+            <p>9. Was beschreibt der Begriff <span class="highlight" onclick="toggleDefinition('sonoritaetDef')">Sonorität</span> in der Lyrik?</p>
+            <input type="radio" id="frage9a" name="q9" value="1">
+            <label for="frage9a">Die Klangfarbe und Musikalität der Worte</label><br>
+            <input type="radio" id="frage9b" name="q9" value="0">
+            <label for="frage9b">Die Anzahl der Silben in einem Vers</label><br>
+            <input type="radio" id="frage9c" name="q9" value="0">
+            <label for="frage9c">Die Reimstruktur eines Gedichts</label>
+        </div>
+
+        <div class="question">
+            <p>10. Was versteht man unter der <span class="highlight" onclick="toggleDefinition('alliterationDef')">Alliteration</span>?</p>
+            <input type="radio" id="frage10a" name="q10" value="1">
+            <label for="frage10a">Die Wiederholung des gleichen Anfangsbuchstabens in benachbarten Wörtern</label><br>
+            <input type="radio" id="frage10b" name="q10" value="0">
+            <label for="frage10b">Ein festes Versmaß in einem Gedicht</label><br>
+            <input type="radio" id="frage10c" name="q10" value="0">
+            <label for="frage10c">Die Wiederholung von Vokalen im Vers</label>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Ergebnisse anzeigen</button>
     </form>
 
-    <h2 id="resultsTitle" style="display: none;">Ergebnis:</h2>
-    <p id="results" style="font-size: 18px;"></p>
+    <div id="results"></div>
 
+    <!-- Definitionen -->
     <div id="sonettDef" class="definition">
-        <h3>Definition des Sonetts:</h3>
-        <p>Ein Sonett ist ein Gedicht, das aus 14 Versen besteht, die meist in einem festen Reimschema angeordnet sind. Es gibt verschiedene Reimschemata, aber das klassische Sonett verwendet oft das Reimschema ABAB CDCD EFEF GG.</p>
+        Ein Sonett ist ein Gedicht mit 14 Versen, das in der Regel ein festes Reimschema (ABAB CDCD EFEF GG) hat.
     </div>
-
     <div id="haikuDef" class="definition">
-        <h3>Definition des Haikus:</h3>
-        <p>Ein Haiku ist ein japanisches Gedicht, das aus 17 Silben besteht, die in drei Zeilen mit 5, 7 und 5 Silben unterteilt sind. Haikus behandeln oft Themen aus der Natur und vermitteln eine tiefere Bedeutung in wenigen Worten.</p>
+        Ein Haiku ist ein japanisches Kurzgedicht, das aus 17 Silben besteht, aufgeteilt in drei Zeilen von 5, 7 und 5 Silben.
+    </div>
+    <div id="alexandrinDef" class="definition">
+        Der Alexandriner ist ein Versmaß mit 12 Silben, das oft in der französischen Lyrik verwendet wird.
+    </div>
+    <div id="metapherDef" class="definition">
+        Eine Metapher ist ein bildlicher Ausdruck, der ein Wort oder eine Phrase mit einer anderen Bedeutung verwendet.
+    </div>
+    <div id="eposDef" class="definition">
+        Ein Epos ist ein langes Gedicht, das die Taten von Helden oder historischen Ereignissen beschreibt.
+    </div>
+    <div id="sonoritaetDef" class="definition">
+        Sonorität bezieht sich auf die Klangfarbe und Musikalität von Wörtern in der Lyrik.
+    </div>
+    <div id="alliterationDef" class="definition">
+        Eine Alliteration ist die Wiederholung des gleichen Anfangsbuchstabens in benachbarten Wörtern.
     </div>
 
     <script>
-        // Funktion zum Umschalten der Definitionen
-        function toggleDefinition(defId) {
-            const def = document.getElementById(defId);
-            def.style.display = (def.style.display === "none" || def.style.display === "") ? "block" : "none";
+        // Die Definitionen anzeigen/verbergen
+        function toggleDefinition(id) {
+            var def = document.getElementById(id);
+            if (def.style.display === "none") {
+                def.style.display = "block";
+            } else {
+                def.style.display = "none";
+            }
         }
 
-        // Funktion zum Auswerten des Tests
-        function submitTest() {
-            let score = 0;
+        // Ergebnisse anzeigen und Punkte zählen
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 10;
+            var form = document.getElementById("lyrikTest");
 
-            // Antworten auswerten
-            const q1 = document.querySelector('input[name="q1"]:checked');
-            const q2 = document.querySelector('input[name="q2"]:checked');
-            const q3 = document.querySelector('input[name="q3"]:checked');
-            const q4 = document.querySelector('input[name="q4"]:checked');
-            const q5 = document.querySelector('input[name="q5"]:checked');
-
-            // Antwort-Elemente aus den Fragen holen
-            const questions = [q1, q2, q3, q4, q5];
-
-            // Durch die Fragen iterieren
-            questions.forEach((question, index) => {
-                if (question) {
-                    const answer = question.value;
-                    const label = question.nextElementSibling;
-
-                    // Richtige oder falsche Antwort
-                    if (answer == "1") {
-                        label.classList.add("correct");
-                    } else {
-                        label.classList.add("incorrect");
-                    }
-                    score += parseInt(answer);
+            for (var i = 0; i < totalQuestions; i++) {
+                var question = form.querySelectorAll(`input[name="q${i+1}"]:checked`);
+                if (question.length > 0 && question[0].value === "1") {
+                    score++;
+                    question[0].parentElement.classList.add("correct");
+                } else if (question.length > 0) {
+                    question[0].parentElement.classList.add("incorrect");
                 }
-            });
+            }
 
             // Ergebnis anzeigen
-            const resultsTitle = document.getElementById("resultsTitle");
-            const results = document.getElementById("results");
-
-            resultsTitle.style.display = "block";
-
-            if (score === 5) {
-                results.textContent = `Perfekt! Du hast ${score} von 5 Punkten. Du kennst dich in der Lyrik sehr gut aus!`;
+            var results = document.getElementById("results");
+            if (score === totalQuestions) {
+                results.textContent = `Perfekt! Du hast ${score} von ${totalQuestions} Punkten. Du kennst dich in der Lyrik sehr gut aus!`;
                 results.classList.add("positiveEffect");
-            } else if (score >= 3) {
-                results.textContent = `Gut gemacht! Du hast ${score} von 5 Punkten. Du weißt schon einiges über Lyrik.`;
+            } else if (score >= totalQuestions * 0.7) {
+                results.textContent = `Gut gemacht! Du hast ${score} von ${totalQuestions} Punkten. Du weißt schon einiges über Lyrik.`;
                 results.classList.add("positiveEffect");
             } else {
-                results.textContent = `Du hast ${score} von 5 Punkten. Es lohnt sich, noch mehr über Lyrik zu lernen. 😊`;
+                results.textContent = `Du hast ${score} von ${totalQuestions} Punkten. Es lohnt sich, noch mehr über Lyrik zu lernen. 😊`;
                 results.classList.add("encouragingEffect");
             }
         }
